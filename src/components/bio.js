@@ -40,7 +40,7 @@ const Bio = () => {
         Written by <strong>{author}</strong>, a company doing things in London.
         {` `}
         <a href={`https://www.bibblio.org/}`}>
-          You should check them out
+          You should check them out.
         </a>
       </p>
     </div>
