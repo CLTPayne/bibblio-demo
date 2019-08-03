@@ -35,7 +35,11 @@ const BlogPostTemplate = ({ data, pageContext, path }) => (
       }}
     />
     <Bio />
-
+    <div className="bib--rcm-init"
+      data-recommendation-key="4fd205e0-f2df-4a59-ad9a-770cac111ab2"
+      data-style-classes="bib--row-3 bib--hover bib--recency-show"
+    >
+    </div>
     <ul
       style={{
         display: `flex`,
