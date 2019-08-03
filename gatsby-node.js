@@ -8,18 +8,16 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(
     `
       {
-        allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
-        ) {
+        allBlogPostsJson(sort: {fields: [post_date], order: DESC}, limit: 50) {
           edges {
             node {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-              }
+              post_author
+              post_category
+              post_content
+              post_date
+              post_slug
+              post_thumbnail
+              post_title
             }
           }
         }
@@ -27,22 +25,23 @@ exports.createPages = async ({ graphql, actions }) => {
     `
   )
 
+
   if (result.errors) {
     throw result.errors
   }
 
   // Create blog posts pages.
-  const posts = result.data.allMarkdownRemark.edges
+  const posts = result.data.allBlogPostsJson.edges
 
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
 
     createPage({
-      path: post.node.fields.slug,
+      path: `/post/${post.node.post_slug}`,
       component: blogPost,
       context: {
-        slug: post.node.fields.slug,
+        slug: post.node.post_slug,
         previous,
         next,
       },
