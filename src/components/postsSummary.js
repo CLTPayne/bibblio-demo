@@ -12,7 +12,7 @@ const getBLogPostSummary = (data) => {
                         marginBottom: rhythm(1 / 4),
                     }}
                 >
-                    <Link style={{ boxShadow: `none` }} to={element.node.post_slug}>
+                    <Link style={{ boxShadow: `none` }} to={`/post/${element.node.post_slug}`}>
                         {element.node.post_title}
                     </Link>
                 </h3>
