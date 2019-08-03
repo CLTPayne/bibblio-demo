@@ -17,7 +17,7 @@ class BlogIndex extends React.Component {
         <SEO title="All posts" />
         <Bio />
         <PostsSummary />
-      </Layout>
+      </Layout >
     )
   }
 }
