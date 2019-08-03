@@ -41,7 +41,7 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/post/${post.node.post_slug}`,
       component: blogPost,
       context: {
-        slug: post.node.post_slug,
+        post_slug: post.node.post_slug,
         previous,
         next,
       },
@@ -52,7 +52,7 @@ exports.createPages = async ({ graphql, actions }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `BlogPostsJson`) {
     const value = createFilePath({ node, getNode })
     createNodeField({
       name: `slug`,
