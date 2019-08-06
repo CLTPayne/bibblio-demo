@@ -10,6 +10,7 @@ const BlogPostTemplate = ({ data, pageContext, path }) => (
   <Layout location={path} title={data.site.siteMetadata.title} >
     <SEO
       title={data.blogPostsJson.post_title}
+      slug={pageContext.post_slug}
     />
     <h1
       style={{
