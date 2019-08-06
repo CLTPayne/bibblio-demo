@@ -2,6 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 
 export default function HTML(props) {
+  const location = typeof window !== 'undefined' ? window.location.pathname : "";
+  const url = "https://stupefied-bardeen-8a8701.netlify.com" + location;
   return (
     <html {...props.htmlAttributes}>
       <head>
@@ -13,8 +15,9 @@ export default function HTML(props) {
         />
         {props.headComponents}
         {/* <!-- Start of Bibblio RCM includes --> */}
+        <link rel="canonical" href={url} />
         <link rel="stylesheet" type="text/css" href="https://cdn.bibblio.org/rcm/4.5/bib-related-content.min.css" />
-        <script id="bib--rcm-src" src="https://cdn.bibblio.org/rcm/4.5/bib-related-content.min.js" data-auto-ingestion="true" data-recommendation-key="4fd205e0-f2df-4a59-ad9a-770cac111ab2" custom-unique-identifier={typeof window !== 'undefined' ? window.location.pathname : 'undefined'} />
+        <script id="bib--rcm-src" src="https://cdn.bibblio.org/rcm/4.5/bib-related-content.min.js" data-auto-ingestion="true" data-recommendation-key="4fd205e0-f2df-4a59-ad9a-770cac111ab2" />
         {/* <!-- End of Bibblio RCM includes --> */}
       </head>
       <body {...props.bodyAttributes}>
