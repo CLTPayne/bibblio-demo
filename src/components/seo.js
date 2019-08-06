@@ -69,7 +69,7 @@ function SEO({ description, lang, meta, title, slug }) {
         },
       ].concat(meta)}
     >
-      <link rel="canonical" href={`https://stupefied-bardeen-8a8701.netlify.com/post/${slug}`} />
+      <link rel="canonical" href={`https://stupefied-bardeen-8a8701.netlify.com/${slug !== undefined ? `post/` + slug : ''}`} />
     </Helmet>
   )
 }
